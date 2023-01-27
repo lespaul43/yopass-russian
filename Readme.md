@@ -22,6 +22,21 @@ cd yopass-russian
 docker build -t lespaul43/yopassru -f Dockerfile .
 ```
 
+Next step you should run container from new Image
+
+With SSL security
+
+```
+docker run -p 443:1337 -v /local/certs/:/certs \
+    --link memcached_yopass:memcached -d lespaul43/yopassru --memcached=memcached:11211 --tls-key=/certs/tls.key --tls-cert=/certs/tls.crt
+```
+
+Or withno SSL security
+
+```
+docker run -p 127.0.0.1:80:1337 --link memcached_yopass:memcached -d lespaul43/yopassru --memcached=memcached:11211
+```
+
 ---
 ## Русский
 
@@ -57,3 +72,4 @@ docker run -p 443:1337 -v /local/certs/:/certs \
 
 ```
 docker run -p 127.0.0.1:80:1337 --link memcached_yopass:memcached -d lespaul43/yopassru --memcached=memcached:11211
+```
