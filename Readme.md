@@ -19,7 +19,7 @@ Check this repository out and build your own container with the russian language
 ```
 git clone https://github.com/Lespaul43/yopass-russian.git
 cd yopass-russian
-docker build -t lespaul43/yopassru -f Dockerfile
+docker build -t lespaul43/yopassru -f Dockerfile .
 ```
 
 ---
@@ -41,5 +41,19 @@ yopass автоматически увидит файл и активирует 
 ```
 git clone https://github.com/Lespaul43/yopass-russian.git
 cd yopass-russian
-docker build -t lespaul43/yopassru -f Dockerfile
+docker build -t lespaul43/yopassru -f Dockerfile .
 ```
+
+После этого запустите контейнер с новым Image
+
+С поддержкой защищенного соединения
+
+```
+docker run -p 443:1337 -v /local/certs/:/certs \
+    --link memcached_yopass:memcached -d lespaul43/yopassru --memcached=memcached:11211 --tls-key=/certs/tls.key --tls-cert=/certs/tls.crt
+```
+
+Или без поддержки защищенного соединения
+
+```
+docker run -p 127.0.0.1:80:1337 --link memcached_yopass:memcached -d lespaul43/yopassru --memcached=memcached:11211
