@@ -4,10 +4,10 @@
     "inputSecretLabel": "Секретное сообщение",
     "inputSecretPlaceholder": "Сообщение расшифровывается локально в браузере",
     "buttonEncrypt": "Зашифровать сообщение",
-    "buttonEncryptLoading": "Зашифрованное сообщение...",
+    "buttonEncryptLoading": "Шифрование сообщения...",
     "inputOneTimeLabel": "Одноразовое скачивание",
     "inputPasswordLabel": "Задать ключ дешифрования",
-    "inputGenerateLabel": "Сгенерировпть ключ дешифрования"
+    "inputGenerateLabel": "Сгенерировать ключ дешифрования"
   },
   "upload": {
     "title": "Перетащите файл для загрузки",
